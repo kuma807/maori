@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オリ語の会話文と数字</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        #label {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #button {
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>オリ語の会話文と数字</h1>
+    <div id="label">クリックして始める</div>
+    <button id="button">クリック</button>
+
+    <script>
+        // 会話データ（質問・返答・数字）
+        const conversations = [
+            { text: "Teenaa koe", read: "テーナー　コエ", meaning: "こんにちは（一人に対して）" },
+            { text: "E hia ou tau?", read: "エ　ヒア　オウ　タウ？", meaning: "何歳ですか？" },
+            { text: "E rua tekau maa rua oku tau.", read: "エ　ルア　テカウ　マー　ルア　オクタウ", meaning: "22歳です" },
+            { text: "Ko wai tou ingoa？", read: "コ　ワイ　トウ　イゴア？", meaning: "あなたの名前は？" },
+            { text: "Ko OO taku ingoa", read: "コ　○○ タク　イゴア", meaning: "私の名前は○○です" },
+            { text: "Ka pai", read: "カ パイ", meaning: "ありがとう" },
+            { text: "E pai ana", read: "エ　パイ　アナ", meaning: "どういたしまして" },
+            { text: "E noho ra", read: "エ　ノホ　ラ", meaning: "さようなら（残る人に対して）" },
+            { text: "Haere raa", read: "ハエレ　ラー", meaning: "さようなら（去る人に対して）" },
+            { text: "He aha tana mahi-a？", read: "ヘ　アハ　タナ　マヒ-ア？", meaning: "あの人は何をしていますか？" },
+            { text: "Kei te mahi ia", read: "ケイ　テ　マヒ　イア", meaning: "あの人は働いています" },
+            { text: "Kei mamao pea?", read: "ケイ　ママオ　ペア？", meaning: "ここから遠いですか？" },
+            { text: "Kaao, kua tata.", read: "カ-オ、クア　タタ", meaning: "いいえ、近いです" },
+            { text: "Homai he kawhe maku.", read: "ホマイ　ヘ　カフェ　マク.", meaning: "コーヒーをください" },
+            { text: "Anei koe", read: "アネイ　コエ", meaning: "どうぞ" },
+            { text: "Ko wai tena tangata？", read: "コ　ワイ　テナ　タガタ？", meaning: "あの人は誰ですか？" },
+            { text: "Ko ia taku hoa", read: "コ　イア　タク　ホア", meaning: "あれは私の友達です" },
+            { text: "He aha te kai e hiahia ana koe?", read: "ヘ　アハ　テ　カイ　エ　ヒアヒア　アナ　コエ？", meaning: "何を食べますか？" },
+            { text: "E hiahia ana ahau ki te kai ika.", read: "エ　ヒアヒア　アナ　アハウ　キ　テ　カイ　イカ.", meaning: "魚が食べたいです" },
+            { text: "Kore", read: "コレ", meaning: "ゼロ（強い否定の言葉）" },
+            { text: "Tahi", read: "タヒ", meaning: "1" },
+            { text: "Rua", read: "ルア", meaning: "2" },
+            { text: "Toru", read: "トル", meaning: "3" },
+            { text: "Whaa", read: "ファー", meaning: "4" },
+            { text: "Rima", read: "リマ", meaning: "5" },
+            { text: "Ono", read: "オノ", meaning: "6" },
+            { text: "Whitu", read: "フィツ", meaning: "7" },
+            { text: "Waru", read: "ワル", meaning: "8" },
+            { text: "Iwa", read: "イワ", meaning: "9" },
+            { text: "Tekau", read: "テカウ", meaning: "10" },
+            { text: "Kotahi takau maa tahi", read: "コタヒ　タカウ　マー　タヒ", meaning: "11" },
+        ];
+
+        // 状態変数
+        let currentIndex = -1;
+        let state = 0; // 0: 元の言葉, 1: 読み方, 2: 意味
+
+        // ラベルとボタン
+        const label = document.getElementById("label");
+        const button = document.getElementById("button");
+
+        // クリックイベント
+        button.addEventListener("click", () => {
+            if (state === 0) {
+                currentIndex = Math.floor(Math.random() * conversations.length);
+                label.textContent = conversations[currentIndex].text + "\n" + conversations[currentIndex].read;
+                state = 1;
+            } else if (state === 1) {
+                label.textContent = conversations[currentIndex].text + "\n" + conversations[currentIndex].read + "\n" + conversations[currentIndex].meaning;
+                state = 0;
+            }
+        });
+    </script>
+</body>
+</html>
