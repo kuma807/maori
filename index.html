@@ -5,26 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>オリ語の会話文と数字</title>
     <style>
+        h1 {
+            display: block;
+            margin-bottom: 40px; /* h1とコンテナの間の余白 */
+        }
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* 縦方向に配置 */
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* 画面全体の高さ */
             text-align: center;
-            padding: 20px;
+            background-color: #f9f9f9; /* 背景色（オプション） */
+        }
+        #container {
+            margin-top: 20px; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* ラベルとボタンの間に余白を追加 */
         }
         #label {
             font-size: 24px;
-            margin-bottom: 20px;
+            width: 100%; /* 横幅を全体に広げる */
+            max-width: 1000px; /* 最大幅を設定 */
+            height: 5em; /* 高さを固定（3行分） */
+            overflow: hidden; /* 文字が多い場合に隠す */
             white-space: pre-wrap; /* 改行をサポート */
+            line-height: 1.5; /* 行間を調整 */
+            text-align: center; /* テキスト中央寄せ */
+            border: 1px solid #ccc; /* 境界線 */
+            padding: 10px; /* 内側余白 */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 影を追加 */
+            background-color: #fff; /* 背景色 */
         }
         #button {
             font-size: 18px;
             padding: 10px 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <h1>オリ語の会話文と数字</h1>
-    <div id="label">クリックして始める</div>
-    <button id="button">クリック</button>
+    <h1>マオリ語の数字と日常会話</h1>
+    <div id="container">
+        <div id="label">クリックして始める</div>
+        <button id="button">クリック</button>
+    </div>
 
     <script>
         // 会話データ（質問・返答・数字）
