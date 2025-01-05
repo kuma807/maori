@@ -13,6 +13,7 @@
         #label {
             font-size: 24px;
             margin-bottom: 20px;
+            white-space: pre-wrap; /* 改行をサポート */
         }
         #button {
             font-size: 18px;
@@ -73,10 +74,10 @@
         button.addEventListener("click", () => {
             if (state === 0) {
                 currentIndex = Math.floor(Math.random() * conversations.length);
-                label.textContent = conversations[currentIndex].text + "\n" + conversations[currentIndex].read;
+                label.innerHTML = conversations[currentIndex].text + "<br>" + conversations[currentIndex].read;
                 state = 1;
             } else if (state === 1) {
-                label.textContent = conversations[currentIndex].text + "\n" + conversations[currentIndex].read + "\n" + conversations[currentIndex].meaning;
+                label.innerHTML = conversations[currentIndex].text + "<br>" + conversations[currentIndex].read + "<br>" + conversations[currentIndex].meaning;
                 state = 0;
             }
         });
